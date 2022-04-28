@@ -4,7 +4,7 @@
 
 <nav class="md:flex justify-between md:py-6 z-20 relative">
   <div>
-    <a href="#!" class="px-4 py-2 text-gray-50 font-bold text-xl">Logo</a>
+    <button href="#!" class="px-4 py-2 bg-transparent border-0 text-gray-50 font-bold text-xl">Logo</button>
 
     <button class="md:hidden">menu</button>
   </div>
@@ -12,7 +12,7 @@
 
   <ul class="md:flex">
     {#each links as link}
-      <li><a href="#!" class="px-8 py-6 text-white font-bold text-xl">{ link }</a></li>
+      <li><button href="#!" class="px-8 py-6 bg-transparent border-0 text-white font-bold text-xl">{ link }</button></li>
     {/each}
   </ul>
 </nav>
