@@ -24,7 +24,7 @@
 
 <style>
   section.header {
-    background: url('/images/7188.jpg');
+    background: url('/images/7188-min.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

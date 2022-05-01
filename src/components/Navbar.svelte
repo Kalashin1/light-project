@@ -1,5 +1,6 @@
 <script>
-  export const links = ["Home", "Lights", "About", "Contact"]
+  export const links = ["Home", "shop", "About", "Contact"]
+  import { Link } from 'svelte-navigator';
 </script>
 
 <nav class="md:flex justify-between md:py-6 z-20 relative">
@@ -12,7 +13,7 @@
 
   <ul class="md:flex">
     {#each links as link}
-      <li><button href="#!" class="px-8 py-6 bg-transparent border-0 text-white font-bold text-xl">{ link }</button></li>
+      <li><Link to={link} class="px-8 capitalize py-6 bg-transparent border-0 text-white font-bold text-xl">{ link }</Link></li>
     {/each}
   </ul>
 </nav>

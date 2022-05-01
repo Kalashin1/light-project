@@ -24,7 +24,7 @@
 
 <style>
   section.header {
-    background: url('/images/glisten-interior-glitter-architecture-shiny.jpg');
+    background: url('/images/glisten-interior-glitter-architecture-shiny-min.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

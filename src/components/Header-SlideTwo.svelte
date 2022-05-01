@@ -24,7 +24,7 @@
 
 <style>
   section.header {
-    background: url('/images/beautiful-luxury-chandelier-decoration-interior.jpg');
+    background: url('/images/beautiful-luxury-chandelier-decoration-interior-min.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

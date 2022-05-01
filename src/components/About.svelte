@@ -2,7 +2,7 @@
 <div class="w-full">
   <div class="grid grid-cols-1 md:grid-cols-2 h-screen">
     <div class="max-h-96 md:h-screen">
-      <img class="w-screen h-screen object-cover object-top" src="/images/vintage-ceiling-light-lamp.jpg" alt="">
+      <img class="w-screen h-screen object-cover object-top" src="/images/vintage-ceiling-light-lamp-min.jpg" alt="">
     </div>
     <div class="flex bg-black p-10 text-white">
       <div class="mb-auto mt-auto max-w-lg">
