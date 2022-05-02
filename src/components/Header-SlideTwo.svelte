@@ -5,9 +5,9 @@
   import HeaderParagraph from "./Header-paragraph.svelte";
 </script>
 
-<section class="header px-8 text-gray-50 relative">
+<section class="header py-4 px-8 text-gray-50 relative">
   <Navbar />
-  <div class="md:flex relative justify-center z-20">
+  <div class="md:flex mt-16 relative justify-center z-20">
     <div class="md:w-1/2">
       <HeaderText text="Lorem ipsum dolor sit amet" />
       <HeaderParagraph />

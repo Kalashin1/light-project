@@ -9,7 +9,7 @@
   import ContactUs from '../components/Contact-Us.svelte'
   import Footer from '../components/Footer.svelte'
   // Optional, include all titles of your sections
-  const sectionTitles = ["Home", "About", "Services", "Plans", "Contact", "Footer"];
+  const sectionTitles = ["Home", "About", "Services", "Contact", "Footer"];
 
   // Same mechanics as in sections
   const slideTitles = ["1982-1993", "1993-2006", "2006-present"];
@@ -17,25 +17,14 @@
 </script>
 
 <Fullpage {sectionTitles} arrows>
-  <FullpageSection center {slideTitles} arrows>
-    <FullpageSlide>
-			<Header />
-		</FullpageSlide>
-    <FullpageSlide>
-			<HeaderSlideTwo />
-		</FullpageSlide>
-    <FullpageSlide>
-      <HeaderSlideThree />
-    </FullpageSlide>
+  <FullpageSection>
+    <HeaderSlideTwo />
   </FullpageSection>
   <FullpageSection>
     <About />
   </FullpageSection>
   <FullpageSection>
     <Services />
-  </FullpageSection>
-  <FullpageSection>
-    <Pricing />
   </FullpageSection>
   <FullpageSection>
     <ContactUs />
