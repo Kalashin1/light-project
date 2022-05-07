@@ -1,5 +1,5 @@
 <script>
-  export const links = ["Home", "shop", "About", "Contact"]
+  export let links;
   import { Link } from 'svelte-navigator';
   $:showNav = true;
 
@@ -23,7 +23,7 @@
   <ul class="sm:flex">
     {#if showNav}  
       {#each links as link}
-        <li><Link to={link} class="px-8 capitalize py-6 bg-transparent border-0 text-white font-bold text-xl">{ link }</Link></li>
+        <li><Link to={`/${link.link}`} class="px-8 capitalize py-6 bg-transparent border-0 text-white font-bold text-xl">{ link.text }</Link></li>
       {/each}
     {/if}
   </ul>

@@ -3,10 +3,29 @@
   import HeaderButton from "./Header-Button.svelte";
   import HeaderText from "./Header-Text.svelte";
   import HeaderParagraph from "./Header-paragraph.svelte";
+
+  let links = [
+    {
+      text: 'Home',
+      link: ''
+    },
+    {
+      text: 'Shop',
+      link: 'shop'
+    },
+    {
+      text: 'About',
+      link: ''
+    },
+    {
+      text: 'Contact',
+      link: 'contact'
+    }
+  ]
 </script>
 
 <section class="header py-4 px-8 text-gray-50 relative">
-  <Navbar />
+  <Navbar { links } />
   <div class="md:flex mt-16 relative justify-center z-20">
     <div class="md:w-1/2">
       <HeaderText text="Lorem ipsum dolor sit amet" />

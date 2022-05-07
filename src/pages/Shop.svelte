@@ -1,11 +1,19 @@
 <script>
   import Navbar from '../components/Navbar.svelte'
   import ProductCatalogue from '../components/Product-Catalogue.svelte';
-  import CartComponent from '../components/Cart-Component.svelte';
   const links = [
-    'home',
-    'shop',
-    'cart'
+    {
+      text: 'Home',
+      link: ''
+    },
+    {
+      text: 'Shop',
+      link: 'shop'
+    },
+    {
+      text: 'Cart',
+      link: 'cart'
+    }
   ]
 </script>
 
@@ -13,6 +21,5 @@
   <Navbar {links} />
   <div class="my-8">
     <ProductCatalogue />
-    <CartComponent />
   </div>
 </section>

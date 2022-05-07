@@ -13,10 +13,36 @@
 
   // Same mechanics as in sections
   const slideTitles = ["1982-1993", "1993-2006", "2006-present"];
+  
 
+  let links = [
+    {
+      text: 'Home',
+      link: ''
+    },
+    {
+      text: 'Shop',
+      link: 'shop'
+    },
+    {
+      text: 'About',
+      link: ''
+    },
+    {
+      text: 'Contact',
+      link: 'contact'
+    }
+  ]
 </script>
 
-<Fullpage {sectionTitles} arrows>
+
+<HeaderSlideTwo />
+<About />
+<Services />
+<ContactUs />
+<Footer />
+
+<!-- <Fullpage {sectionTitles} arrows>
   <FullpageSection>
     <HeaderSlideTwo />
   </FullpageSection>
@@ -32,4 +58,4 @@
   <FullpageSection>
     <Footer />
   </FullpageSection>
-</Fullpage>
+</Fullpage> -->
