@@ -23,7 +23,10 @@
   <ul class="sm:flex">
     {#if showNav}  
       {#each links as link}
-        <li><Link to={`/${link.link}`} class="px-8 capitalize py-6 bg-transparent border-0 text-white font-bold text-xl">{ link.text }</Link></li>
+        <li><Link to={`/${link.link}`} class="hover:no-underline">
+          <span class="px-8 capitalize py-6 bg-transparent border-0 text-white font-bold text-xl">
+            { link.text }
+          </span></Link></li>
       {/each}
     {/if}
   </ul>

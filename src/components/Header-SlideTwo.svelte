@@ -12,14 +12,6 @@
     {
       text: 'Shop',
       link: 'shop'
-    },
-    {
-      text: 'About',
-      link: ''
-    },
-    {
-      text: 'Contact',
-      link: 'contact'
     }
   ]
 </script>
@@ -30,9 +22,8 @@
     <div class="md:w-1/2">
       <HeaderText text="Lorem ipsum dolor sit amet" />
       <HeaderParagraph />
-      <div class="m-4 flex justify-center1">
-        <HeaderButton text="Buy" />
-        <HeaderButton text="More" />
+      <div class="m-4 flex justify-center">
+        <HeaderButton route="shop" text="Check Out Our Store" />
       </div>
     </div>
     <div>
