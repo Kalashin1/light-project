@@ -20,7 +20,7 @@
   <Navbar { links } />
   <div class="md:flex mt-16 relative justify-center z-20">
     <div class="md:w-1/2">
-      <HeaderText text="Lorem ipsum dolor sit amet" />
+      <HeaderText text="Helvic Gleam" />
       <HeaderParagraph />
       <div class="m-4 flex justify-center">
         <HeaderButton route="shop" text="Check Out Our Store" />

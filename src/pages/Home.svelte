@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte'
 	import HeaderSlideTwo from "../components/Header-SlideTwo.svelte";
   import Services from "../components/Services.svelte";
   import About from "../components/About.svelte";
@@ -9,7 +10,19 @@
 
   // Same mechanics as in sections
   const slideTitles = ["1982-1993", "1993-2006", "2006-present"];
-  
+  const wakeServer = async () => {
+    const res = await fetch('https://garnet-round-jumper.glitch.me/');
+    
+    if (res.ok) {
+      // const data = await res.json();
+      console.log(res)
+    }
+  }
+
+  onMount(async () => {
+    await wakeServer()
+  })
+
 </script>
 
 

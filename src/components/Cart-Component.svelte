@@ -26,7 +26,7 @@
                 <p class="text-gray-400 text-base">$ {cartItem.price}</p>
               </div>
               <div>
-                <img />
+                <!-- <img /> -->
               </div>
               <div class="text-lg font-semibold">
                 <button

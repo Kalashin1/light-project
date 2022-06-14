@@ -1,7 +1,7 @@
 <script>
   import ProductCard from './Product-Card.svelte';
   const getLights = async () => {
-    const res = await fetch('http://localhost:3000/lights');
+    const res = await fetch('https://garnet-round-jumper.glitch.me/lights');
     
     if (res.ok) {
       const data = await res.json();

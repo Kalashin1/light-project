@@ -16,7 +16,7 @@
   };
 
   let createUser = async (fullName, phone) => {
-    const res = await fetch("http://localhost:3000/users", {
+    const res = await fetch("https://garnet-round-jumper.glitch.me/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fullName, phone }),
@@ -31,7 +31,7 @@
   };
 
   let makeOrder = async (lights, user, deliveryLocation) => {
-    const res = await fetch('http://localhost:3000/orders', {
+    const res = await fetch('https://garnet-round-jumper.glitch.me/orders', {
       method: 'post',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -52,7 +52,7 @@
   let createAccount = async () => {
     console.log(user.fullName);
     let doesUserExistRes = await fetch(
-      `http://localhost:3000/users/phone/${user.phone}`
+      `https://garnet-round-jumper.glitch.me/users/phone/${user.phone}`
     );
 
     if (doesUserExistRes.ok) {
