@@ -6,7 +6,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "publish": "firebase deploy --only hosting:light-sandbox"
+    "publish": "firebase deploy --only hosting:light-sandbox",
+    "ping": "node ping"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -20,6 +21,8 @@
     "svelte-fullpage": "^0.4.1"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "node-fetch": "^3.2.6",
     "sirv-cli": "^2.0.0",
     "svelte-carousel": "^1.0.17-rc4",
     "svelte-navigator": "^3.1.5"
