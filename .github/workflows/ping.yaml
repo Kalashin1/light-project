@@ -12,5 +12,5 @@ jobs:
     - uses: actions/setup-node@master
       with: 
         node-version: '14.x' 
-      - run: npm install 
+    - run: npm install 
     - run: npm run ping
