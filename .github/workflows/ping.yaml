@@ -4,7 +4,7 @@ on:
   schedule: ## Schedule the job to run at a particular time.
     - cron:  '15 * * * *'
 
-jobs: PING_SERVER
+jobs:
   deploy: 
     runs-on: ubuntu-latest  
     steps: 
@@ -13,4 +13,4 @@ jobs: PING_SERVER
       with: 
         node-version: '14.x' 
     - run: npm install 
-     - run: npm run ping
+    - run: npm run ping
