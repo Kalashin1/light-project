@@ -2,7 +2,7 @@ name: PING_SERVER
 
 on:
   schedule: ## Schedule the job to run at a particular time.
-    - cron:  '*/3 * * * *'
+    - cron:  '*/2 * * * *'
 
 jobs:
   deploy: 
