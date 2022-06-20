@@ -1,6 +1,6 @@
 name: Deploy_To_Firebase
 
-on: [pull_request, trigger]
+on: [pull_request]
 
 jobs:
   deploy:
