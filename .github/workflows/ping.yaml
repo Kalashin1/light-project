@@ -2,7 +2,7 @@ name: WAKE_SERVER
 
 on:
   schedule: ## Schedule the job to run at a particular time.
-    - cron:  '*/3 * * * *'
+    - cron:  '*/5 * * * *'
 
 jobs:
   deploy: 
