@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte'
+  import Loader from '../components/Loader.svelte';
 	import HeaderSlideTwo from "../components/Header-SlideTwo.svelte";
   import Services from "../components/Services.svelte";
   import About from "../components/About.svelte";
@@ -16,36 +17,33 @@
     if (res.ok) {
       // const data = await res.json();
       console.log(res)
+      showLoader = false;
     }
   }
 
   onMount(async () => {
-    await wakeServer()
+    await wakeServer();
   })
+
+  $:showLoader = true;
 
 </script>
 
 
-<HeaderSlideTwo />
-<About />
-<Services />
-<ContactUs />
-<Footer />
-
-<!-- <Fullpage {sectionTitles} arrows>
-  <FullpageSection>
-    <HeaderSlideTwo />
-  </FullpageSection>
-  <FullpageSection>
+{#if showLoader}
+  <div class="bg-gray-800 flex items-center justify-center h-screen">
+    <Loader />
+    <h3 class="text-white">Loading...</h3>
+  </div>
+{:else}
+  <HeaderSlideTwo />
     <About />
-  </FullpageSection>
-  <FullpageSection>
     <Services />
-  </FullpageSection>
-  <FullpageSection>
     <ContactUs />
-  </FullpageSection>
-  <FullpageSection>
-    <Footer />
-  </FullpageSection>
-</Fullpage> -->
+  <Footer />
+{/if}
+
+
+
+
+
