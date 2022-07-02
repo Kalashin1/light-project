@@ -5,6 +5,7 @@
   import Cart from './pages/Cart.svelte';
   import Confirmation from "./pages/Confirmation.svelte";
   import { Router, Route } from "svelte-navigator";
+  import { db } from './firebase-settings';
 </script>
 
 <Router>
