@@ -2,28 +2,42 @@
   let show = true;
   import { navigate } from "svelte-navigator";
   import { onDestroy } from "svelte";
-  import Cart from '../stores/cart-store'
-  let lights = []
+  import Cart from "../stores/cart-store";
+  import { db } from "../firebase-settings";
+  import {
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    where,
+    query,
+  } from "firebase/firestore";
+  let lights = [];
 
-  const unsubscribeFromStore = Cart.subscribe(cart => lights = cart);
+  const unsubscribeFromStore = Cart.subscribe((cart) => (lights = cart));
 
-  onDestroy(() => unsubscribeFromStore())
+  onDestroy(() => unsubscribeFromStore());
 
   let user = {
     fullName: "",
     phone: "",
-    deliveryAddress: ''
+    deliveryAddress: "",
   };
 
-  let createUser = async (fullName, phone) => {
-    const res = await fetch("https://garnet-round-jumper.glitch.me/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ fullName, phone }),
+  let createUser = async (name, phone) => {
+    const docRef = await addDoc(collection(db, "users"), {
+      name,
+      phone,
     });
+  };
 
-    if (res.ok) {
-      const user = await res.json();
+  let getUser = async (phone) => {
+    const q = query(collection(db, "users"), where("phone", "==", phone));
+    const querySnapshot = await getDocs(q);
+    if (querySnapshot.docs.length) {
+      console.log(querySnapshot);
+      const user = querySnapshot.docs[0].data();
+      user.id = querySnapshot.docs[0].id;
       return user;
     } else {
       return false;
@@ -31,45 +45,34 @@
   };
 
   let makeOrder = async (lights, user, deliveryLocation) => {
-    const res = await fetch('https://garnet-round-jumper.glitch.me/orders', {
-      method: 'post',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        lights,
-        user,
-        deliveryLocation
-      })
+    await await addDoc(collection(db, "orders"), {
+      lights,
+      user,
+      deliveryLocation,
+      status: "pending",
+      date: new Date().getTime(),
     });
-
-    if (res.ok) {
-      const data = await res.json()
-      return data;
-    } else {
-      console.log(`error ${await res.json()}`)
-    }
-  }
+  };
 
   let createAccount = async () => {
     console.log(user.fullName);
-    let doesUserExistRes = await fetch(
-      `https://garnet-round-jumper.glitch.me/users/phone/${user.phone}`
-    );
+    let existedUser = await getUser(user.phone);
 
-    if (doesUserExistRes.ok) {
-      const data = await doesUserExistRes.json();
-
-      if (data._id) {
-        console.log(data);
-        const order = await makeOrder(lights, data._id, user.deliveryAddress)
-        navigate('/order-placed')
-      } else {
-        const RegUser = await createUser(user.fullName, user.phone);
-        console.log(RegUser._id);
-        const order = await makeOrder(lights, RegUser._id, user.deliveryAddress);
-        navigate('/order-placed')
-      }
-    } else{
-      console.log(`error ${await res.json()}`);
+    if (existedUser) {
+      await makeOrder(
+        lights,
+        { name: user.fullName, phone: user.phone },
+        user.deliveryAddress
+      );
+      navigate("/order-placed");
+    } else {
+      await createUser(user.fullName, user.phone);
+      await makeOrder(
+        lights,
+        { name: user.fullName, phone: user.phone },
+        user.deliveryAddress
+      );
+      navigate("/order-placed");
     }
   };
 </script>
@@ -89,13 +92,15 @@
           <div class="mt-6">
             <div
               class="mb-5 pb-1border-b-2 text-center font-base text-gray-700"
-            >
-            </div>
+            />
             <div class="text-center font-semibold text-gray-50">
               Please enter your Details to proceed?
             </div>
 
-            <form class="mt-8" on:submit|preventDefault={(e) => createAccount()}>
+            <form
+              class="mt-8"
+              on:submit|preventDefault={(e) => createAccount()}
+            >
               <div class="mx-auto max-w-lg">
                 <div class="py-2">
                   <span class="px-1 text-sm text-gray-600">Name</span>
@@ -126,7 +131,9 @@
                   </div>
                 </div>
                 <div class="py-2">
-                  <span class="px-1 text-sm text-gray-600">Delivery Address</span>
+                  <span class="px-1 text-sm text-gray-600"
+                    >Delivery Address</span
+                  >
                   <input
                     placeholder=""
                     type="text"

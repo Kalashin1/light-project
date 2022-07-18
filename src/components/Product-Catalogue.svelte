@@ -1,21 +1,29 @@
 <script>
+  import { db } from "../firebase-settings";
   import ProductCard from "./Product-Card.svelte";
   import Loader from "./Loader.svelte";
+  import { collection, query, getDocs } from "firebase/firestore";
   $: showLoader = true;
 
   const getLights = async () => {
-    const res = await fetch("https://garnet-round-jumper.glitch.me/lights");
+    const q = query(collection(db, "lights"));
 
-    if (res.ok) {
-      const data = await res.json();
-      console.log(data);
-      showLoader = false;
-      return data;
-    }
+    const querySnapshot = await getDocs(q);
+    const docs = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+    showLoader = false;
+    return docs;
+
+    // const res = await fetch("https://garnet-round-jumper.glitch.me/lights");
+
+    // if (res.ok) {
+    //   showLoader = false;
+      // const data = await res.json();
+      // console.log(data);
+      // return data;
+    // }
   };
 </script>
 
-<!-- https://necessary-magnetic-bassoon.glitch.me/orders -->
 {#await getLights()}
   <div class="bg-gray-800 flex items-center justify-center h-screen">
     <Loader />

@@ -12,13 +12,9 @@
   // Same mechanics as in sections
   const slideTitles = ["1982-1993", "1993-2006", "2006-present"];
   const wakeServer = async () => {
-    const res = await fetch('https://garnet-round-jumper.glitch.me/');
-    
-    if (res.ok) {
-      // const data = await res.json();
-      console.log(res)
+    setTimeout(() => {
       showLoader = false;
-    }
+    }, 500);
   }
 
   onMount(async () => {

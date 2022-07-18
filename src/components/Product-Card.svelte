@@ -2,39 +2,6 @@
   export let light;
   import Cart from '../stores/cart-store';
 
-  let handleClick1 = (flag) => {
-    let icon = document.getElementById("chevronDown1");
-    let icon2 = document.getElementById("chevronUp1");
-    let menu = document.getElementById("menu1");
-    if (flag) {
-      menu.classList.toggle("hidden");
-      icon.classList.toggle("hidden");
-      icon2.classList.toggle("hidden");
-    }
-  };
-
-  let handleClick2 = (flag) => {
-    let icon = document.getElementById("chevronDown2");
-    let icon2 = document.getElementById("chevronUp2");
-    let menu = document.getElementById("menu2");
-    if (flag) {
-      menu.classList.toggle("hidden");
-      icon.classList.toggle("hidden");
-      icon2.classList.toggle("hidden");
-    }
-  };
-
-  let handleClick3 = (flag) => {
-    let icon = document.getElementById("chevronDown3");
-    let icon2 = document.getElementById("chevronUp3");
-    let menu = document.getElementById("menu3");
-    if (flag) {
-      menu.classList.toggle("hidden");
-      icon.classList.toggle("hidden");
-      icon2.classList.toggle("hidden");
-    }
-  };
-
   const _addToCart = async (light) => {
     light.amount = 1;
     Cart.update(lights => {
@@ -51,7 +18,7 @@
       width="300"
       height="300"
       class="object-cover"
-      src={light.imageUrl}
+      src={light.url}
       alt="bag"
     />
     <button
@@ -94,7 +61,6 @@
     <div class="flex justify-center items-center">
       <button
         aria-label="show menu"
-        on:click={(e) => handleClick1(true)}
         class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-2.5 px-2 bg-gray-800 dark:bg-white dark:text-gray-800 text-white hover:text-gray-400 hover:bg-gray-200"
       >
         <svg
