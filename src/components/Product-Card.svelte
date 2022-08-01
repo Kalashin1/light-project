@@ -15,9 +15,7 @@
   <div class="relative">
     <img
       loading="lazy"
-      width="300"
-      height="300"
-      class="object-cover"
+      class="object-cover w-full h-80"
       src={light.url}
       alt="bag"
     />

@@ -1,7 +1,11 @@
 <script>
   import { navigate } from 'svelte-navigator'
+  import { createEventDispatcher } from 'svelte';
+
   export let cart;
   console.log(cart);
+
+  const dispatch = createEventDispatcher();
 
   let totalArr, total;
 
@@ -9,6 +13,13 @@
     totalArr = cart.map((item) => item.amount * item.price);
     total = totalArr.reduce((prev, next) => prev + next);
   }
+
+  function editAmount(amount, id) {
+		dispatch('editAmount', {
+			amount,
+      id
+		});
+	}
   
 </script>
 
@@ -94,7 +105,8 @@
                   class="flex flex-row space-x-2 w-full items-center rounded-lg"
                 >
                   <button
-                    class="focus:outline-none bg-pink-700 hover:bg-pink-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center "
+                    class="focus:outline-none bg-pink-700 hover:bg-pink-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                    on:click={e => editAmount(-1, cartItem.id)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +126,7 @@
                   <p>{cartItem.amount}</p>
                   <button
                     class="focus:outline-none bg-pink-700 hover:bg-pink-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center"
+                    on:click={e => editAmount(+1, cartItem.id)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

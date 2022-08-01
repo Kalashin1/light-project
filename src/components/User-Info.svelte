@@ -4,6 +4,7 @@
   import { onDestroy } from "svelte";
   import Cart from "../stores/cart-store";
   import { db } from "../firebase-settings";
+  import PaymentComponent from "./PaymentComponent.svelte";
   import {
     collection,
     addDoc,
@@ -17,6 +18,14 @@
   const unsubscribeFromStore = Cart.subscribe((cart) => (lights = cart));
 
   onDestroy(() => unsubscribeFromStore());
+
+  function hidePayment (){
+    showPayment = false;
+    navigate("/order-placed");
+  }
+
+  $:showPayment = false;
+  let url;
 
   let user = {
     fullName: "",
@@ -45,13 +54,29 @@
   };
 
   let makeOrder = async (lights, user, deliveryLocation) => {
-    await await addDoc(collection(db, "orders"), {
-      lights,
-      user,
-      deliveryLocation,
-      status: "pending",
-      date: new Date().getTime(),
-    });
+    const lightsTotal = lights.map(l => parseInt(l.amount) * parseInt(l.price));
+    const total = lightsTotal.reduce((prev, next) => prev + next);
+    console.log(total)
+    const res = await fetch('https://caterwauling-moored-griffin.glitch.me/transaction', {
+      headers: { "Content-Type": "application/json"},
+      body: JSON.stringify({ email: 'payment@gmail.com', amount: total }),
+      method: 'post'
+    })
+    if (res.ok) {
+      const { data } = await res.json();
+      console.log(data.data.authorization_url);
+      url = data.data.authorization_url
+      showPayment = true
+      await await addDoc(collection(db, "orders"), {
+        lights,
+        reference: data.data.reference,
+        user,
+        deliveryLocation,
+        status: "pending",
+        createdAt: new Date().getTime(),
+      });
+    }
+    
   };
 
   let createAccount = async () => {
@@ -59,12 +84,13 @@
     let existedUser = await getUser(user.phone);
 
     if (existedUser) {
+      
       await makeOrder(
         lights,
         { name: user.fullName, phone: user.phone },
         user.deliveryAddress
       );
-      navigate("/order-placed");
+      
     } else {
       await createUser(user.fullName, user.phone);
       await makeOrder(
@@ -72,7 +98,6 @@
         { name: user.fullName, phone: user.phone },
         user.deliveryAddress
       );
-      navigate("/order-placed");
     }
   };
 </script>
@@ -84,7 +109,11 @@
     src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"></script>
 </svelte:head>
 
-<div class="container max-w-full h-screen mx-auto bg-gray-900 py-24 px-6">
+
+<div class="container max-w-full h-screen mx-auto bg-gray-900 py-24 px-6 relative">
+  {#if showPayment}
+    <PaymentComponent url={url} on:click={hidePayment} />
+  {/if}
   <div class="font-sans">
     <div class="max-w-sm mx-auto px-6">
       <div class="relative flex flex-wrap">
