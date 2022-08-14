@@ -10,23 +10,23 @@
 
 </script>
 
-<nav class="sm:flex justify-between md:py-6 z-20 relative">
-  <div class="flex justify-between">
-    <button href="#!" class="px-4 py-2 bg-transparent border-0 text-gray-50 font-bold text-xl">
-      <img src='-5823573116612360453_121.jpg' alt="Helvic Gleam" class="h-16 w-20 object-fit" />
-    </button>
+<nav class="sm:flex justify-between px-4 md:py-8 z-20 relative bg-transparent">
+  <div class="flex justify-between py-4">
+    <Link to="/" class="bg-transparent relative -top-4 md:-top-8 border-0 text-gray-50 font-bold text-xl">
+      <img src='logo.png' alt="Helvic Gleam" class="h-16 w-24 md:h-24 md:w-32 object-fit" />
+    </Link>
 
-    <button class="sm:hidden px-4" on:click={e => updateShowNav()}>
+    <span class="sm:hidden" on:click={e => updateShowNav()}>
       <i class="fas fa-bars cursor-pointer"></i>
-    </button>
+    </span>
   </div>
 
 
   <ul class="sm:flex">
     {#if showNav}  
       {#each links as link}
-        <li><Link to={`/${link.link}`} class="hover:no-underline">
-          <span class="px-8 capitalize py-6 bg-transparent border-0 text-white font-bold text-xl">
+        <li class="my-4"><Link to={`/${link.link}`} class="hover:no-underline">
+          <span class="px-2 md:px-8 capitalize py-6 md:py-6 bg-transparent border-0 text-white font-bold text-xl">
             { link.text }
           </span></Link></li>
       {/each}

@@ -16,9 +16,9 @@
   ]
 </script>
 
-<section class="header py-4 px-8 text-gray-50 relative">
+<section class="header text-gray-50 relative">
   <Navbar { links } />
-  <div class="md:flex mt-16 relative justify-center z-20">
+  <div class="md:flex mt-16 relative justify-center z-20 py-4 px-8">
     <div class="md:w-1/2">
       <HeaderText text="Helvic Gleam" />
       <HeaderParagraph />

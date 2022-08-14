@@ -4,7 +4,7 @@
 	import HeaderSlideTwo from "../components/Header-SlideTwo.svelte";
   import Services from "../components/Services.svelte";
   import About from "../components/About.svelte";
-  import PaymentComponent from '../components/PaymentComponent.svelte'
+  // import PaymentComponent from '../components/PaymentComponent.svelte'
   import ContactUs from '../components/Contact-Us.svelte'
   import Footer from '../components/Footer.svelte'
   // Optional, include all titles of your sections
@@ -33,12 +33,13 @@
     <h3 class="text-white">Loading...</h3>
   </div>
 {:else}
+<section>
   <HeaderSlideTwo />
-    <PaymentComponent />
     <About />
     <Services />
     <ContactUs />
   <Footer />
+</section>
 {/if}
 
 
