@@ -74,6 +74,7 @@
         deliveryLocation,
         status: "pending",
         createdAt: new Date().getTime(),
+        affiliate: localStorage.getItem('affilate')
       });
     }
     

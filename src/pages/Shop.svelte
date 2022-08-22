@@ -1,7 +1,10 @@
 <script>
+  export let affiliate;
   import Navbar from '../components/Navbar.svelte'
   import ProductCatalogue from '../components/Product-Catalogue.svelte';
   import Footer from '../components/Footer.svelte';
+  console.log(affiliate);
+  localStorage.setItem('affiliate', affiliate);
   const links = [
     {
       text: 'Home',

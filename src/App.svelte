@@ -11,8 +11,8 @@
   <Route path="/">
     <Home />
   </Route>
-  <Route path="/shop">
-    <Shop />
+  <Route path="/shop/:affiliate" let:params>
+    <Shop affiliate="{params.affiliate}" />
   </Route>
   <Route path="/cart">
     <Cart />

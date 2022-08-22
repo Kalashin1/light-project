@@ -23,7 +23,7 @@
       <HeaderText text="Helvic Gleam" />
       <HeaderParagraph />
       <div class="m-4 flex justify-center">
-        <HeaderButton route="shop" text="Check Out Our Store" />
+        <HeaderButton route="shop/blah" text="Check Out Our Store" />
       </div>
     </div>
     <div>
