@@ -103,7 +103,7 @@
       <p
         class="tracking-tight text-base font-medium leading-4 text-white"
       >
-        ${light.price}
+        N{light.price}
       </p>
     </div>
     <div
