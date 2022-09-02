@@ -10,8 +10,16 @@
       link: ''
     },
     {
-      text: 'Shop',
-      link: 'shop'
+      text: 'Lamps',
+      link: 'shop/lamp/none'
+    },
+    {
+      text: 'Bulbs',
+      link: 'shop/bulb/none'
+    },
+    {
+      text: 'Chandelier',
+      link: 'shop/chandelier/none'
     }
   ]
 </script>
@@ -23,7 +31,7 @@
       <HeaderText text="Helvic Gleam" />
       <HeaderParagraph />
       <div class="m-4 flex justify-center">
-        <HeaderButton route="shop/blah" text="Check Out Our Store" />
+        <HeaderButton route="shop/lamp/none" text="Check Out Our Store" />
       </div>
     </div>
     <div>

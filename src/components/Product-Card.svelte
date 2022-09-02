@@ -63,7 +63,7 @@
       >
         <svg
           id="chevronUp1"
-          class="fill-stroke"
+          class="fill-stroke" 
           width="10"
           height="6"
           viewBox="0 0 10 6"
