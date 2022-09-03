@@ -19,7 +19,7 @@
 			amount,
       id
 		});
-	}
+	};
   
 </script>
 
@@ -34,7 +34,7 @@
             <div class="flex justify-between px-4 items-center">
               <div class="text-lg font-semibold">
                 <p>{cartItem.title}</p>
-                <p class="text-gray-400 text-base">$ {cartItem.price}</p>
+                <p class="text-gray-400 text-base">${cartItem.price}</p>
               </div>
               <div>
                 <!-- <img /> -->

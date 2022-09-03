@@ -17,21 +17,18 @@
     if (typeof type == 'undefined') {
       q = query(collection(db, "lights"));
     }
-    
     q = query(collection(db, "lights"), where("type", "==", type));
 
     const querySnapshot = await getDocs(q);
     const docs = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    // console.log(docs);
-    // lights = docs;
     showLoader = false;
     return docs;
   };
 
-  async function changeLightType(e) {
-    console.log(e.detail);
-    navigate(`/shop/${e.detail.type}/${localStorage.getItem('affiliate')}`);
-  }
+  // async function changeLightType(e) {
+  //   console.log(e.detail);
+  //   navigate(`/shop/${e.detail.type}/${localStorage.getItem('affiliate')}`);
+  // }
 
   
 </script>
@@ -46,7 +43,7 @@
     class="mx-auto container px-4 md:px-6 2xl:px-0 py-12 flex justify-center items-center"
   >
     <div class="flex flex-col jusitfy-start items-start">
-      <SelectLight on:changeLightType={e => changeLightType(e)} />
+      <!-- <SelectLight on:changeLightType={e => changeLightType(e)} /> -->
       <div class="mt-3">
         <h1
           class="text-3xl lg:text-4xl tracking-tight font-semibold leading-8 lg:leading-9 text-white"
