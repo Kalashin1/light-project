@@ -13,7 +13,7 @@
 <nav class="sm:flex justify-between px-4 md:py-8 z-20 relative bg-transparent">
   <div class="flex justify-between py-4">
     <Link to="/" class="bg-transparent relative -top-4 md:-top-8 border-0 text-gray-50 font-bold text-xl">
-      <img src='/logo.png' alt="Helvic Gleam" class="h-16 w-24 md:h-24 md:w-32 object-fit" />
+      <img src='/logo-new.png' alt="Helvic Gleam" class="h-16 w-24 md:h-16 md:w-14 object-fit" />
     </Link>
 
     <span class="sm:hidden" on:click={e => updateShowNav()}>
