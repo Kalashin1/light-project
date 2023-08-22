@@ -3,25 +3,8 @@
   import HeaderButton from "./Header-Button.svelte";
   import HeaderText from "./Header-Text.svelte";
   import HeaderParagraph from "./Header-paragraph.svelte";
-
-  let links = [
-    {
-      text: 'Home',
-      link: ''
-    },
-    {
-      text: 'Lamps',
-      link: 'shop/lamp/none'
-    },
-    {
-      text: 'Bulbs',
-      link: 'shop/bulb/none'
-    },
-    {
-      text: 'Chandelier',
-      link: 'shop/chandelier/none'
-    }
-  ]
+  import {links} from '../helper';
+  
 </script>
 
 <section class="header text-gray-50 relative">

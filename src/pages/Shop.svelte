@@ -1,4 +1,5 @@
 <script>
+	import { links } from './../helper';
   export let affiliate;
   export let lightType;
   import Navbar from '../components/Navbar.svelte'
@@ -6,28 +7,7 @@
   import Footer from '../components/Footer.svelte';
   console.log(affiliate);
   localStorage.setItem('affiliate', affiliate);
-  const links = [
-    {
-      text: 'Home',
-      link: ''
-    },
-    {
-      text: 'Lamps',
-      link: `shop/lamp/${affiliate}`
-    },
-    {
-      text: 'Bulbs',
-      link: `shop/bulb/${affiliate}`
-    },
-    {
-      text: 'Chandelier',
-      link: `shop/chandelier/${affiliate}`
-    },
-    {
-      text: 'Cart',
-      link: 'cart'
-    }
-  ]
+  
 </script>
 
 <section>

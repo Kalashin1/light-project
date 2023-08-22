@@ -1,23 +1,10 @@
 <script>
+	import { links } from './../helper.js';
   import CartComponent from "../components/Cart-Component.svelte";
   import Navbar from '../components/Navbar.svelte';
   import Cart from '../stores/cart-store';
   import { onDestroy } from 'svelte'
-  let cart = []
-  const links = [
-    {
-      text: 'Home',
-      link: ''
-    },
-    {
-      text: 'Shop',
-      link: 'shop'
-    },
-    {
-      text: 'Cart',
-      link: 'cart'
-    }
-  ]
+  let cart = [];
 
   const unsubscribe = Cart.subscribe(data => cart = data);
 
